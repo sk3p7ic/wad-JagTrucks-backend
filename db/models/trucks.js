@@ -43,3 +43,28 @@ const addTruck = ({
     }
   );
 };
+
+const getAllTrucks = (response) => {
+  TruckModel.find({}, (err, dbTrucks) => {
+    if (err) {
+      console.log("Error retrieving trucks.");
+      response.send("{undefined}");
+    }
+    var trucks = {};
+    dbTrucks.forEach((truck) => {
+      trucks[truck._id] = truck;
+    });
+    response.send(trucks);
+  });
+};
+const getTruckById = (id, response) => {
+  TruckModel.find({ _id: id }, (err, truck) => {
+    if (err) {
+      console.log(`Error retrieving truck with ID: ${id}`);
+      response.send("{undefined}");
+    }
+    response.send(truck[0]);
+  });
+};
+
+module.exports = { addTruck, getAllTrucks, getTruckById };
