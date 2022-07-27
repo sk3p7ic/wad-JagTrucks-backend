@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const truckSchema = new Schema({
+  _id: Schema.Types.ObjectId,
   name: String,
   profile_img_path: String,
   header_img_path: String,
@@ -17,7 +18,7 @@ const truckSchema = new Schema({
   },
 });
 
-const TruckModel = mongoose.model("TruckModel", truckSchema);
+const TruckModel = mongoose.model("Trucks", truckSchema);
 
 const addTruck = ({
   name,
@@ -29,6 +30,7 @@ const addTruck = ({
 }) => {
   TruckModel.create(
     {
+      _id: new mongoose.Types.ObjectId(),
       name: name,
       profile_img_path: profile_img_path,
       header_img_path: header_img_path,
