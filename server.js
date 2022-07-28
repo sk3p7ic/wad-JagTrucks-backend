@@ -1,10 +1,13 @@
 require("dotenv").config();
 const express = require("express");
+const path = require('path');
 const db = require("./db/database");
 
 const port = 5000;
 
 const app = express();
+
+app.use(express.static(path.join(__dirname, "staticfiles")));
 
 app.get("/", (req, res) => {
   res.send("Please use the api.");
