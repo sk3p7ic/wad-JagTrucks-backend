@@ -53,4 +53,20 @@ const getScheduleForMonth = (year, month, response) => {
   );
 };
 
-module.exports = { addSchedule, getSchedule, getScheduleForMonth };
+const getScheduleForDay = (year, month, day, response) => {
+  ScheduleModel.aggregate(
+    [
+      { $addFields: { year: { $year: "$date" }, month: { $month: "$date" }, day: { $dayOfMonth: "$date" } } },
+      { $match: { year: parseInt(year), month: parseInt(month), day: parseInt(day) } },
+    ],
+    (err, results) => {
+      if (err) {
+        console.log(`Error getting schedule: ${err}`);
+        response.send("{undefined}");
+      }
+      response.send(results);
+    }
+  );
+};
+
+module.exports = { addSchedule, getSchedule, getScheduleForMonth, getScheduleForDay };

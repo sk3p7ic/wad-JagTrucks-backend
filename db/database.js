@@ -28,9 +28,14 @@ const getScheduleForMonth = (year, month, response) => {
   scheduleModel.getScheduleForMonth(parseInt(year), parseInt(month), response);
 };
 
+const getScheduleForDay = (year, month, day, response) => {
+  scheduleModel.getScheduleForDay(parseInt(year), parseInt(month), parseInt(day), response);
+}
+
 module.exports = {
   getAllTrucks,
   getTruckByProperty,
   getEntireSchedule,
   getScheduleForMonth,
+  getScheduleForDay,
 };

@@ -26,6 +26,10 @@ app.get("/api/get/schedule/:year/:month", (req, res) => {
   db.getScheduleForMonth(req.params.year, req.params.month, res);
 });
 
+app.get("/api/get/schedule/:year/:month/:day", (req, res) => {
+  db.getScheduleForDay(req.params.year, req.params.month, req.params.day, res);
+});
+
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
