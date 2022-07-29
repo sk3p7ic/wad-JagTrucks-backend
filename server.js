@@ -1,6 +1,6 @@
 require("dotenv").config();
 const express = require("express");
-const path = require('path');
+const path = require("path");
 const db = require("./db/database");
 
 const port = 5000;
@@ -19,6 +19,18 @@ app.get("/api/get/trucks", (req, res) => {
 
 app.get("/api/get/trucks/:truckId", (req, res) => {
   db.getTruckByProperty("id", req.params.truckId, res);
+});
+
+app.get("/api/query/trucks/foodType/:type", (req, res) => {
+  db.getTruckByProperty("foodType", req.params.type, res);
+});
+
+app.get("/api/query/trucks/diningDollars/:accepts", (req, res) => {
+  db.getTruckByProperty(
+    "diningDollars",
+    req.params.accepts.toLocaleLowerCase() === "true",
+    res
+  );
 });
 
 app.get("/api/get/schedule", (req, res) => {

@@ -66,5 +66,33 @@ const getTruckById = (id, response) => {
     response.send(truck[0]);
   });
 };
+const getTruckByFoodType = (foodType, response) => {
+  TruckModel.find({ primary_food_type: foodType }, (err, trucks) => {
+    if (err) {
+      console.log(`Error retrieving trucks with food type: ${foodType}`);
+      response.send("{undefined}");
+    }
+    response.send(trucks);
+  });
+};
+const getTruckByDiningDollars = (accepts, response) => {
+  TruckModel.find({ accepts_dining_dollars: accepts }, (err, trucks) => {
+    if (err) {
+      console.log(
+        `Error retrieving trucks ${
+          accepts ? "" : "not "
+        } accepting dining dollars`
+      );
+      response.send("{undefined}");
+    }
+    response.send(trucks);
+  });
+};
 
-module.exports = { addTruck, getAllTrucks, getTruckById };
+module.exports = {
+  addTruck,
+  getAllTrucks,
+  getTruckById,
+  getTruckByFoodType,
+  getTruckByDiningDollars,
+};

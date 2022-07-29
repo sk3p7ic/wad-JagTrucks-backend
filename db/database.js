@@ -17,6 +17,13 @@ const getTruckByProperty = (prop, value, response) => {
   switch (prop) {
     case "id":
       truckModel.getTruckById(value, response);
+      break;
+    case "foodType":
+      truckModel.getTruckByFoodType(value, response);
+      break;
+    case "diningDollars":
+      truckModel.getTruckByDiningDollars(value, response);
+      break;
   }
 };
 
@@ -29,8 +36,13 @@ const getScheduleForMonth = (year, month, response) => {
 };
 
 const getScheduleForDay = (year, month, day, response) => {
-  scheduleModel.getScheduleForDay(parseInt(year), parseInt(month), parseInt(day), response);
-}
+  scheduleModel.getScheduleForDay(
+    parseInt(year),
+    parseInt(month),
+    parseInt(day),
+    response
+  );
+};
 
 module.exports = {
   getAllTrucks,
