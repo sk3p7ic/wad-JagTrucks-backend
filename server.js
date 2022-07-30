@@ -9,6 +9,8 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, "staticfiles")));
 
+app.use(express.json());
+
 app.get("/", (req, res) => {
   res.send("Please use the api.");
 });
@@ -55,6 +57,7 @@ app.post("/api/set/users/", (req, res) => {
     requestedPrimaryTruckName: req.body.requestedPrimaryTruckName,
     password: req.body.password,
   });
+  console.log(req.body);
 });
 
 app.listen(port, () => {
