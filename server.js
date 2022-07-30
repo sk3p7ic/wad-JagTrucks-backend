@@ -45,6 +45,18 @@ app.get("/api/get/schedule/:year/:month/:day", (req, res) => {
   db.getScheduleForDay(req.params.year, req.params.month, req.params.day, res);
 });
 
+app.post("/api/set/users/", (req, res) => {
+  db.addUser({
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    username: req.body.username,
+    email: req.body.email,
+    phoneNumber: req.body.phoneNumber,
+    requestedPrimaryTruckName: req.body.requestedPrimaryTruckName,
+    password: req.body.password,
+  });
+});
+
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });

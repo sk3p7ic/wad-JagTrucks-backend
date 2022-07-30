@@ -8,6 +8,7 @@ dbConnection.on("error", console.error.bind(console, "MongoDB had an error."));
 
 const truckModel = require("./models/trucks");
 const scheduleModel = require("./models/schedule");
+const userModel = require("./models/users");
 
 const getAllTrucks = (response) => {
   truckModel.getAllTrucks(response);
@@ -44,10 +45,31 @@ const getScheduleForDay = (year, month, day, response) => {
   );
 };
 
+const addUser = ({
+  firstName,
+  lastName,
+  username,
+  email,
+  phoneNumber,
+  requestedPrimaryTruckName,
+  password,
+}) => {
+  userModel.addUser({
+    firstName: firstName,
+    lastName: lastName,
+    username: username,
+    email: email,
+    phoneNumber: phoneNumber,
+    requestedPrimaryTruckName: requestedPrimaryTruckName,
+    password: password,
+  });
+};
+
 module.exports = {
   getAllTrucks,
   getTruckByProperty,
   getEntireSchedule,
   getScheduleForMonth,
   getScheduleForDay,
+  addUser,
 };
