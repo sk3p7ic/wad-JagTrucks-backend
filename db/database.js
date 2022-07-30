@@ -65,6 +65,13 @@ const addUser = ({
   });
 };
 
+function signIn(authName, password, response) {
+  userModel.signIn({
+    authName,
+    password,
+    response,
+  });
+}
 module.exports = {
   getAllTrucks,
   getTruckByProperty,
@@ -72,4 +79,5 @@ module.exports = {
   getScheduleForMonth,
   getScheduleForDay,
   addUser,
+  signIn,
 };

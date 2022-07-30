@@ -1,3 +1,4 @@
+const { query } = require("express");
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
@@ -43,6 +44,15 @@ const addUser = ({
       if (err) console.error(err);
     }
   );
+  //Todo: enforce single email
 };
-
-module.exports = { addUser };
+function signIn(authName, password, response) {
+  UserModel.findOne({ email: authName }, (err, user) => {
+    if (err || user === undefined) {
+      console.error(err);
+      response.json({ valid: false });
+    }
+    response.json({ vaild: user.password === password });
+  });
+}
+module.exports = { addUser, signIn };

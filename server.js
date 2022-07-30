@@ -63,3 +63,7 @@ app.post("/api/set/users/", (req, res) => {
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
+
+app.post("/api/set/signIn/", (req, res) => {
+  db.signIn(req.body.authName, req.body.password, res);
+});
