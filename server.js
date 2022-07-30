@@ -54,7 +54,7 @@ app.post("/api/set/users/", (req, res) => {
     username: req.body.username,
     email: req.body.email,
     phoneNumber: req.body.phoneNumber,
-    requestedPrimaryTruckName: req.body.requestedPrimaryTruckName,
+    requestedPrimaryTruckName: req.body.truckName,
     password: req.body.password,
   });
   console.log(req.body);
