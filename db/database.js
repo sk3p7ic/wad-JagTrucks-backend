@@ -45,24 +45,30 @@ const getScheduleForDay = (year, month, day, response) => {
   );
 };
 
-const addUser = ({
-  firstName,
-  lastName,
-  username,
-  email,
-  phoneNumber,
-  requestedPrimaryTruckName,
-  password,
-}) => {
-  userModel.addUser({
-    firstName: firstName,
-    lastName: lastName,
-    username: username,
-    email: email,
-    phoneNumber: phoneNumber,
-    requestedPrimaryTruckName: requestedPrimaryTruckName,
-    password: password,
-  });
+const addUser = (
+  {
+    firstName,
+    lastName,
+    username,
+    email,
+    phoneNumber,
+    requestedPrimaryTruckName,
+    password,
+  },
+  response
+) => {
+  userModel.addUser(
+    {
+      firstName: firstName,
+      lastName: lastName,
+      username: username,
+      email: email,
+      phoneNumber: phoneNumber,
+      requestedPrimaryTruckName: requestedPrimaryTruckName,
+      password: password,
+    },
+    response
+  );
 };
 
 function signIn(authName, password, response) {

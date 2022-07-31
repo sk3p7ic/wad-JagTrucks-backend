@@ -48,15 +48,18 @@ app.get("/api/get/schedule/:year/:month/:day", (req, res) => {
 });
 
 app.post("/api/set/users/", (req, res) => {
-  db.addUser({
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    username: req.body.username,
-    email: req.body.email,
-    phoneNumber: req.body.phoneNumber,
-    requestedPrimaryTruckName: req.body.truckName,
-    password: req.body.password,
-  });
+  db.addUser(
+    {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      username: req.body.username,
+      email: req.body.email,
+      phoneNumber: req.body.phoneNumber,
+      requestedPrimaryTruckName: req.body.truckName,
+      password: req.body.password,
+    },
+    res
+  );
   console.log(req.body);
 });
 
