@@ -54,9 +54,10 @@ const addUser = (
 };
 function signIn(authName, password, response) {
   UserModel.findOne({ email: authName }, (err, user) => {
-    if (err || user === undefined) {
+    if (err || user === null) {
       console.error(err);
       response.json({ valid: false, user: null });
+      return;
     }
     response.json({ valid: user.password === password, user: user });
   });
