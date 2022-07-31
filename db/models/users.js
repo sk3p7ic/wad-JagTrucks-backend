@@ -58,7 +58,7 @@ function signIn(authName, password, response) {
       console.error(err);
       response.json({ valid: false, user: null });
     }
-    response.json({ vaild: user.password === password, user: user });
+    response.json({ valid: user.password === password, user: user });
   });
 }
 module.exports = { addUser, signIn };
