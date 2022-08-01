@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<truckMenu>
+  <menuSection displayPrices="false">
+    <title>Protiens</title>
+    <menuItems>
+      <menuItem>
+        <itemName>Angus Grilled Steak</itemName>
+      </menuItem>
+      <menuItem>
+        <itemName>XTreme Chicken</itemName>
+      </menuItem>
+      <menuItem>
+        <itemName>Pork Al Pastor</itemName>
+      </menuItem>
+    </menuItems>
+  </menuSection>
+  <menuSection displayPrices="true">
+    <title>Foods</title>
+    <menuItems>
+      <menuItem>
+        <itemName>Mr. Burrito</itemName>
+        <itemPrice>$9.99</itemPrice>
+        <itemDesc>12" Flour Tortilla + Any Protein + Cheese + Lettuce + Tomato + Cilantro + Onions + Secret Sauce</itemDesc>
+      </menuItem>
+      <menuItem>
+        <itemName>Los Taquitos</itemName>
+        <itemPrice>$8.99</itemPrice>
+        <itemDesc>4 Street Tacos + Any Protien + Onions + Cilantro</itemDesc>
+      </menuItem>
+      <menuItem>
+        <itemName>La Quesadilla</itemName>
+        <itemPrice>$8.99</itemPrice>
+        <itemDesc>12" Flour Tortilla + Grilled Cheese + Any Protein</itemDesc>
+      </menuItem>
+      <menuItem>
+        <itemName>Nacho's Libre</itemName>
+        <itemPrice>$10.00</itemPrice>
+        <itemDesc>Tortilla Chips + Queso + Any Protein + Pico + Sour Cream + Secret Sauce</itemDesc>
+      </menuItem>
+    </menuItems>
+    <extraText>Add a drink for $0.99 more.</extraText>
+  </menuSection>
+</truckMenu>
