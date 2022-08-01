@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<truckMenu>
+  <menuSection displayPrices="false">
+    <title>Meats</title>
+    <menuItems>
+      <menuItem>
+        <itemName>Beef</itemName>
+      </menuItem>
+      <menuItem>
+        <itemName>Chicken</itemName>
+      </menuItem>
+    </menuItems>
+  </menuSection>
+  <menuSection displayPrices="true">
+    <title>Combos</title>
+    <menuItems>
+      <menuItem>
+        <itemName>2 Slider w/o Chips</itemName>
+        <itemPrice>$11.00</itemPrice>
+      </menuItem>
+      <menuItem>
+        <itemName>2 Slider w/ Chips</itemName>
+        <itemPrice>$12.00</itemPrice>
+      </menuItem>
+      <menuItem>
+        <itemName>3 Slider w/o Chips</itemName>
+        <itemPrice>$12.50</itemPrice>
+      </menuItem>
+      <menuItem>
+        <itemName>3 Slider w/ Chips</itemName>
+        <itemPrice>$13.00</itemPrice>
+      </menuItem>
+    </menuItems>
+    <extraText>Add a drink for $1.50 extra!</extraText>
+  </menuSection>
+  <menuSection displayPrices="false">
+    <title>Drinks</title>
+    <menuItems>
+      <menuItem>
+        <itemName>Dr. Pepper</itemName>
+      </menuItem>
+      <menuItem>
+        <itemName>Coca-Cola</itemName>
+      </menuItem>
+      <menuItem>
+        <itemName>Root Beer</itemName>
+      </menuItem>
+      <menuItem>
+        <itemName>Water</itemName>
+      </menuItem>
+    </menuItems>
+  </menuSection>
+  <menuSection displayPrices="false">
+    <title>Sliders</title>
+    <menuItems>
+      <menuItem>
+        <itemName>Chuck Norris</itemName>
+        <itemDesc>Meat, American Cheese, Carmelized Onions, Bacon, and Sriracha Ketchup.</itemDesc>
+      </menuItem>
+      <menuItem>
+        <itemName>Goobster</itemName>
+        <itemDesc>Meat, Crunchy Peanut Butter, Grape Jelly, Bacon, and Sharp Cheddar.</itemDesc>
+      </menuItem>
+      <menuItem>
+        <itemName>Buffy</itemName>
+        <itemDesc>Meat, Garlic Buffalo Sauce, Bleu Cheese Crumbles, Bacon, and Scallions</itemDesc>
+      </menuItem>
+      <menuItem>
+        <itemName>Cowboy From Hell</itemName>
+        <itemDesc>Meat, Fire Roasted Hatch &amp; Serrano Peppers, Wing Sauce, Pepperjack Cheese, and Tobasco Sauce</itemDesc>
+      </menuItem>
+      <menuItem>
+        <itemName>Hasselhoff</itemName>
+        <itemDesc>Meat, Grilled Garlic Shrooms, Shallot and Herb Sour Cream Dip, and Provolone.</itemDesc>
+      </menuItem>
+      <menuItem>
+        <itemName>Kahuna</itemName>
+        <itemDesc>Meat, Grilled Pineapple, Muenster Cheese, and Jalapeno-Mayo.</itemDesc>
+      </menuItem>
+      <menuItem>
+        <itemName>Black Cole Sun</itemName>
+        <itemDesc>Meat, Chili, Grilled Onion &amp; Jalapeno, Cheddar Cheese, and Ranch.</itemDesc>
+      </menuItem>
+      <menuItem>
+        <itemName>Original</itemName>
+        <itemDesc>Meat, with or without American Cheese.</itemDesc>
+      </menuItem>
+    </menuItems>
+  </menuSection>
+</truckMenu>
