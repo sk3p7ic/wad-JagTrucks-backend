@@ -2,6 +2,11 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
+const SocialSchema = new Schema({
+  url: String,
+  username: String,
+});
+
 const truckSchema = new Schema({
   _id: Schema.Types.ObjectId,
   name: String,
@@ -14,12 +19,13 @@ const truckSchema = new Schema({
   accepts_dining_dollars: Boolean,
   socials: {
     type: Map,
-    of: String,
+    of: SocialSchema,
   },
 });
 
 const TruckModel = mongoose.model("Trucks", truckSchema);
 
+// TODO: Update to match new Social Schema
 const addTruck = ({
   name,
   profile_img_path,
