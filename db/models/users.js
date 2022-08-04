@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
+const truckUserSchema = new Schema({
   _id: Schema.Types.ObjectId,
   firstName: String,
   lastName: String,
@@ -15,9 +15,20 @@ const userSchema = new Schema({
   trucks: [Schema.Types.ObjectId],
 });
 
-const UserModel = mongoose.model("TruckUsers", userSchema);
+const studentUserSchema = new Schema({
+  _id: Schema.Types.ObjectId,
+  firstName: String,
+  lastName: String,
+  username: String,
+  email: String,
+  phoneNumber: String,
+  password: String,
+});
 
-const addUser = (
+const TruckUserModel = mongoose.model("TruckUsers", truckUserSchema);
+const StudentUserModel = mongoose.model("studentUsers", studentUserSchema);
+
+const addTruckUser = (
   {
     firstName,
     lastName,
@@ -29,7 +40,7 @@ const addUser = (
   },
   response
 ) => {
-  UserModel.create(
+  TruckUserModel.create(
     {
       _id: new mongoose.Types.ObjectId(),
       firstName: firstName,
@@ -53,7 +64,7 @@ const addUser = (
   //Todo: enforce single email
 };
 function signIn(authName, password, response) {
-  UserModel.findOne({ email: authName }, (err, user) => {
+  TruckUserModel.findOne({ email: authName }, (err, user) => {
     if (err || user === null) {
       console.error(err);
       response.json({ valid: false, user: null });
@@ -62,4 +73,4 @@ function signIn(authName, password, response) {
     response.json({ valid: user.password === password, user: user });
   });
 }
-module.exports = { addUser, signIn };
+module.exports = { addTruckUser, signIn };

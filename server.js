@@ -49,6 +49,7 @@ app.get("/api/get/schedule/:year/:month/:day", (req, res) => {
 
 app.post("/api/set/users/newTruck", (req, res) => {
   db.addUser(
+    "truck",
     {
       firstName: req.body.firstName,
       lastName: req.body.lastName,

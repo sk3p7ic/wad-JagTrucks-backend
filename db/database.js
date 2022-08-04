@@ -46,6 +46,7 @@ const getScheduleForDay = (year, month, day, response) => {
 };
 
 const addUser = (
+  userType,
   {
     firstName,
     lastName,
@@ -57,18 +58,20 @@ const addUser = (
   },
   response
 ) => {
-  userModel.addUser(
-    {
-      firstName: firstName,
-      lastName: lastName,
-      username: username,
-      email: email,
-      phoneNumber: phoneNumber,
-      requestedPrimaryTruckName: requestedPrimaryTruckName,
-      password: password,
-    },
-    response
-  );
+  if (userType === "truck") {
+    userModel.addTruckUser(
+      {
+        firstName: firstName,
+        lastName: lastName,
+        username: username,
+        email: email,
+        phoneNumber: phoneNumber,
+        requestedPrimaryTruckName: requestedPrimaryTruckName,
+        password: password,
+      },
+      response
+    );
+  }
 };
 
 function signIn(authName, password, response) {
