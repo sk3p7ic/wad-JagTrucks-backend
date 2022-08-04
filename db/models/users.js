@@ -89,7 +89,7 @@ const addStudentUser = (
   //Todo: enforce single email
 };
 
-function signIn(authName, password, response) {
+function signTruckIn(authName, password, response) {
   TruckUserModel.findOne({ email: authName }, (err, user) => {
     if (err || user === null) {
       console.error(err);
@@ -99,4 +99,16 @@ function signIn(authName, password, response) {
     response.json({ valid: user.password === password, user: user });
   });
 }
-module.exports = { addTruckUser, addStudentUser, signIn };
+
+function signStudentIn(authName, password, response) {
+  StudentUserModel.findOne({ email: authName }, (err, user) => {
+    if (err || user === null) {
+      console.error(err);
+      response.json({ valid: false, user: null });
+      return;
+    }
+    response.json({ valid: user.password === password, user: user });
+  });
+}
+
+module.exports = { addTruckUser, addStudentUser, signTruckIn, signStudentIn };

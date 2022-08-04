@@ -89,8 +89,15 @@ const addUser = (
   }
 };
 
-function signIn(authName, password, response) {
-  userModel.signIn(authName, password, response);
+function signIn(authName, password, userType, response) {
+  switch (userType) {
+    case "truck":
+      userModel.signTruckIn(authName, password, response);
+      break;
+    case "student":
+      userModel.signStudentIn(authName, password, response);
+      break;
+  }
 }
 module.exports = {
   getAllTrucks,
