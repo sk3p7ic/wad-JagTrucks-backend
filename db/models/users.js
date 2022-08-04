@@ -63,6 +63,32 @@ const addTruckUser = (
   );
   //Todo: enforce single email
 };
+
+const addStudentUser = (
+  { firstName, lastName, username, email, phoneNumber, password },
+  response
+) => {
+  StudentUserModel.create(
+    {
+      _id: new mongoose.Types.ObjectId(),
+      firstName: firstName,
+      lastName: lastName,
+      username: username,
+      email: email,
+      phoneNumber: phoneNumber,
+      password: password,
+    },
+    (err, newUser) => {
+      if (err) {
+        console.error(err);
+        response.json({ success: false, reason: "SRV_ERR", user: null });
+      }
+      response.json({ success: true, reason: "", user: newUser });
+    }
+  );
+  //Todo: enforce single email
+};
+
 function signIn(authName, password, response) {
   TruckUserModel.findOne({ email: authName }, (err, user) => {
     if (err || user === null) {
@@ -73,4 +99,4 @@ function signIn(authName, password, response) {
     response.json({ valid: user.password === password, user: user });
   });
 }
-module.exports = { addTruckUser, signIn };
+module.exports = { addTruckUser, addStudentUser, signIn };

@@ -58,19 +58,34 @@ const addUser = (
   },
   response
 ) => {
-  if (userType === "truck") {
-    userModel.addTruckUser(
-      {
-        firstName: firstName,
-        lastName: lastName,
-        username: username,
-        email: email,
-        phoneNumber: phoneNumber,
-        requestedPrimaryTruckName: requestedPrimaryTruckName,
-        password: password,
-      },
-      response
-    );
+  switch (userType) {
+    case "truck":
+      userModel.addTruckUser(
+        {
+          firstName: firstName,
+          lastName: lastName,
+          username: username,
+          email: email,
+          phoneNumber: phoneNumber,
+          requestedPrimaryTruckName: requestedPrimaryTruckName,
+          password: password,
+        },
+        response
+      );
+      break;
+    case "student":
+      userModel.addStudentUser(
+        {
+          firstName: firstName,
+          lastName: lastName,
+          username: username,
+          email: email,
+          phoneNumber: phoneNumber,
+          password: password,
+        },
+        response
+      );
+      break;
   }
 };
 

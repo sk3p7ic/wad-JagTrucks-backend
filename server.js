@@ -64,6 +64,23 @@ app.post("/api/set/users/newTruck", (req, res) => {
   console.log(req.body);
 });
 
+app.post("/api/set/users/newStudent", (req, res) => {
+  db.addUser(
+    "student",
+    {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      username: req.body.username,
+      email: req.body.email,
+      phoneNumber: req.body.phoneNumber,
+      requestedPrimaryTruckName: "",
+      password: req.body.password,
+    },
+    res
+  );
+  console.log(req.body);
+});
+
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
