@@ -47,7 +47,7 @@ app.get("/api/get/schedule/:year/:month/:day", (req, res) => {
   db.getScheduleForDay(req.params.year, req.params.month, req.params.day, res);
 });
 
-app.post("/api/set/users/", (req, res) => {
+app.post("/api/set/users/newTruck", (req, res) => {
   db.addUser(
     {
       firstName: req.body.firstName,
