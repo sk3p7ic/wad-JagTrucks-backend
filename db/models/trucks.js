@@ -7,6 +7,21 @@ const SocialSchema = new Schema({
   username: String,
 });
 
+const MenuItemSchema = new Schema({
+  _id: Number,
+  name: String,
+  price: Number,
+  doDisplayPrice: Boolean,
+  description: String,
+  isOrderable: Boolean,
+});
+
+const MenuSectionSchema = new Schema({
+  _id: Number,
+  title: String,
+  items: [MenuItemSchema],
+});
+
 const truckSchema = new Schema({
   _id: Schema.Types.ObjectId,
   name: String,
@@ -21,6 +36,7 @@ const truckSchema = new Schema({
     type: Map,
     of: SocialSchema,
   },
+  menu: [MenuSectionSchema],
 });
 
 const TruckModel = mongoose.model("Trucks", truckSchema);
@@ -95,10 +111,18 @@ const getTruckByDiningDollars = (accepts, response) => {
   });
 };
 
+const updateTruckMenu = async (truckId, menuJson, response) => {
+  const query = await TruckModel.findByIdAndUpdate(truckId, {
+    $set: { menu: menuJson },
+  });
+  response.send(query);
+};
+
 module.exports = {
   addTruck,
   getAllTrucks,
   getTruckById,
   getTruckByFoodType,
   getTruckByDiningDollars,
+  updateTruckMenu,
 };
